@@ -94,7 +94,7 @@ class DbTransactionsResolver(private val flow: ResolveTransactionsFlow) : Transa
         logger.debug { "Downloaded ${sortedDependencies?.size} dependencies from remote peer for transactions ${flow.txHashes}" }
     }
 
-    override fun recordDependencies(usedStatesToRecord: StatesToRecord) {
+    override fun recordDependencies(usedStatesToRecord: StatesToRecord, batchMode: Boolean) {
         val sortedDependencies = checkNotNull(this.sortedDependencies)
         logger.trace { "Recording ${sortedDependencies.size} dependencies for ${flow.txHashes.size} transactions" }
         val transactionStorage = flow.serviceHub.validatedTransactions as WritableTransactionStorage

@@ -22,5 +22,5 @@ interface TransactionsResolver {
     fun downloadDependencies(batchMode: Boolean)
 
     @Suspendable
-    fun recordDependencies(usedStatesToRecord: StatesToRecord)
+    fun recordDependencies(usedStatesToRecord: StatesToRecord, batchMode: Boolean)
 }
